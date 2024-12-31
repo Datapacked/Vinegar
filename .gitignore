@@ -1,3 +1,5 @@
 .vscode
 
 coupons-server/coupons.db
+
+node_modules
