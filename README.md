@@ -1,6 +1,6 @@
-# Coupons server+etc:
+# Vinegar server+etc:
 
-## How to run instance of Coupons server:
+## How to run instance of Vinegar server:
 
 `npm install`
 
@@ -32,3 +32,9 @@ TEXT NOT NULL UNIQUE PRIMARY KEY AUTOINCREMENT | TEXT
 
 #### `marketplace_uuid` is the `sha256` hash of the name of the marketplace
 the name of the marketplace is determined by the domain name of said marketplace. For instance, `https://www.walmart.com/` becomes `walmart` where the UUID is `sha256hash(walmart)`
+
+---
+
+## Vinegar extension
+
+TBD lmao :3
