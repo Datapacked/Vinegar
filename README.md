@@ -1,6 +1,8 @@
-# Vinegar server+etc (NOT FUNCTIONAL YET):
+# Vinegar
 
-## How to run instance of Vinegar server:
+## Vinegar Server
+
+### How to run instance of Vinegar server
 
 `mv empty_coupons.db VinegarServer/coupons.db`
 
@@ -12,19 +14,37 @@
 
 `$SHELL run.sh` where `$SHELL` is your shell of choice
 
-### API Endpoints (all under `/api`):
+## Vinegar Server API Endpoints (all under `/api` using JSON body)
 
-#### `/addcoupon`:
-##### Accepts JSON body where the arguments are the following:
+### `/addcoupon`
 `code` - Coupon code (Text)
 
 `marketplace` - Marketplace (Text, domain name, **NOT A HASH**)
 
 `expiration_date` - Coupon expiration date (UNIX timestamp, optional)
 
+Example:
+```json
+{
+    "code": "IPSUM",
+    "marketplace": "example.com",
+    "expiration_date": 1234567890
+}
+```
+
+### `/coupons`
+`marketplace` - Marketplace (Text, domain name, **NOT A HASH**)
+
+Example:
+```json
+{
+    "marketplace": "www.example.com"
+}
+```
+
 ---
 
-## `(empty_)coupons.db` DB Schema:
+## `(empty_)coupons.db` DB Schema
 
 ### TABLE Coupons
 
