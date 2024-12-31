@@ -1,4 +1,4 @@
-# Vinegar server+etc:
+# Vinegar server+etc (NOT FUNCTIONAL YET):
 
 ## How to run instance of Vinegar server:
 
