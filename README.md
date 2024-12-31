@@ -22,10 +22,13 @@
 
 code | marketplace | expiration_date | deletion_date | likes | dislikes
 ---- | ----------- | --------------- | ------------- | ----- | --------
-TEXT NOT NULL PRIMARY KEY | INTEGER REFERENCES Marketplace(marketplace_id) | INTEGER | INTEGER | INTEGER | INTEGER
+TEXT NOT NULL PRIMARY KEY | TEXT REFERENCES Marketplace(marketplace_uuid) | INTEGER | INTEGER | INTEGER | INTEGER
 
 ### TABLE Marketplaces
 
-marketplace_id | marketplace_name
+marketplace_uuid | marketplace_name
 -------------- | ----------------
-INTEGER NOT NULL UNIQUE PRIMARY KEY AUTOINCREMENT | TEXT
+TEXT NOT NULL UNIQUE PRIMARY KEY AUTOINCREMENT | TEXT
+
+#### `marketplace_uuid` is the `sha256` hash of the name of the marketplace
+the name of the marketplace is determined by the domain name of said marketplace. For instance, `https://www.walmart.com/` becomes `walmart` where the UUID is `sha256hash(walmart)`
