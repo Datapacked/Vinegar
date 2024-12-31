@@ -12,9 +12,15 @@
 
 `$SHELL run.sh` where `$SHELL` is your shell of choice
 
-### API Endpoints:
+### API Endpoints (all under `/api`):
 
-#### TBD
+#### `/addcoupon`:
+##### Accepts JSON body where the arguments are the following:
+`code` - Coupon code (Text)
+
+`marketplace` - Marketplace (Text, domain name, **NOT A HASH**)
+
+`expiration_date` - Coupon expiration date (UNIX timestamp, optional)
 
 ---
 
@@ -22,7 +28,9 @@
 
 ### TABLE Coupons
 
-code | marketplace | expiration_date | deletion_date | likes | dislikes
+#### NOTE: `marketplace_id` column stores `blake2b` hashes of the marketplace that are required to be sent in by the `addcoupon` API endpoint
+
+code | marketplace_id | expiration_date | deletion_date | likes | dislikes
 ---- | ----------- | --------------- | ------------- | ----- | --------
 TEXT NOT NULL PRIMARY KEY | TEXT REFERENCES Marketplace(marketplace_uuid) | INTEGER | INTEGER | INTEGER | INTEGER
 

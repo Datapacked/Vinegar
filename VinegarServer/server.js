@@ -1,11 +1,5 @@
 const express = require('express');
 
-const bodyParser = require('body-parser');
-
-const { blake2bHex } = require('blakejs');
-
-const jsonParser = bodyParser.json();
-
 const app = express();
 const PORT = 2500;
 

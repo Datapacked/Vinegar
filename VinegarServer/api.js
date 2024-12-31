@@ -47,7 +47,7 @@ api.post('/addcoupon', jsonParser, (req, res) => {
     var MarketplacesSQL = `INSERT OR REPLACE INTO Marketplaces(marketplace_uuid, marketplace_name) VALUES(?, ?);`
     let MarketplacesStatus = writeToDB(MarketplacesSQL, [marketplace_uuid, marketplace]);
 
-    var CouponsSQL = `INSERT OR REPLACE INTO Coupons(code, marketplace, expiration_date, deletion_date) VALUES(?, ?, ?, ?);`
+    var CouponsSQL = `INSERT OR REPLACE INTO Coupons(code, marketplace_id, expiration_date, deletion_date) VALUES(?, ?, ?, ?);`
     let CouponsStatus = writeToDB(CouponsSQL, [code, marketplace_uuid, Number(expiration_date), deletion_date]);
 
     var retStatus = ((MarketplacesStatus + CouponsStatus) === 400) ? 200 : 500;
