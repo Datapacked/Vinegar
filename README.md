@@ -18,7 +18,7 @@
 
 ---
 
-## `coupons.db` DB Schema:
+## `(empty_)coupons.db` DB Schema:
 
 ### TABLE Coupons
 
