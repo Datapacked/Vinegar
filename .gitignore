@@ -1,5 +1,5 @@
 .vscode
 
-coupons-server/coupons.db
+VinegarServer/coupons.db
 
 node_modules/
