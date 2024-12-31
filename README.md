@@ -2,6 +2,8 @@
 
 ## How to run instance of Vinegar server:
 
+`mv empty_coupons.db coupons-server/coupons.db`
+
 `npm install`
 
 `node coupons-server/server.js`
