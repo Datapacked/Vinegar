@@ -112,11 +112,11 @@ api.post('/mirror', jsonParser, (req, res) => {
 api.get('/coupons', jsonParser, (req, res) => {
     const { marketplace } = req.body;
     const marketplace_id = blake2bHex(marketplace);
-    const SQL = `SELECT code FROM Coupons WHERE marketplace_id = ?;`;
-    const data = readFromDB(SQL, [marketplace_id]);
+    const SQL = `SELECT code FROM Coupons WHERE marketplace_id = ? ORDER BY (likes / MAX(dislikes, 1)), (likes + dislikes) DESC;`;
+    const data = readFromDB(SQL, [marketplace_id]); // Returns an array of rows (but only the coupon code) sorted by the ratio of likes to dislikes and the sum of likes and dislikes
     data.then((result) => {
-        res.status(200);
-        res.json(result);
+        res.status(200); // Sets status to 200 if nothing breaks
+        res.json(result.rows.map(obj => obj.code)); // Converts array of objects of format { "code": COUPON_CODE } to an array containing strings of format [ ... , COUPON_CODE .. ]
     });
 });
 

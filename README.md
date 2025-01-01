@@ -17,6 +17,7 @@
 ## Vinegar Server API Endpoints (all under `/api` using JSON body)
 
 ### `/addcoupon`
+#### - Adds coupon to DB
 `code` - Coupon code (Text)
 
 `marketplace` - Marketplace (Text, domain name, **NOT A HASH**)
@@ -33,6 +34,7 @@ Example:
 ```
 
 ### `/coupons`
+#### - Gets coupons of marketplace sorted by rating and popularity
 `marketplace` - Marketplace (Text, domain name, **NOT A HASH**)
 
 Example:
